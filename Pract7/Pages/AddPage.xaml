@@ -1,0 +1,52 @@
+﻿<Page x:Class="Pract7.Pages.AddPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:validators="clr-namespace:Pract7.ValidationRules"
+      xmlns:local="clr-namespace:Pract7.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddPage" Background="{DynamicResource Fon}">
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Style="{DynamicResource StackPanelOrientation}" Width="300">
+            <TextBlock Text="Добавление нового рецепта" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,20" Style="{DynamicResource TextBlockWithMargin}"/>
+
+            <Label Content="Название:" Style="{DynamicResource LabelWithMargin}"/>
+            <TextBox Text="{Binding NewRecept.Name, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxWithMargin}" Width="Auto"/>
+
+            <Label Content="Кухня:" Style="{DynamicResource LabelWithMargin}"/>
+            <TextBox Text="{Binding NewRecept.Cuisine, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxWithMargin}" Width="Auto"/>
+
+            <Label Content="Время приготовления (мин):" Style="{DynamicResource LabelWithMargin}"/>
+            <TextBox Style="{DynamicResource TextBoxWithMargin}" Width="auto">
+                <TextBox.Text>
+                    <Binding Path="NewRecept.CookingTime" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validators:NecessarilyValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Label Content="Калории:" Style="{DynamicResource LabelWithMargin}"/>
+            <TextBox Style="{DynamicResource TextBoxWithMargin}" Width="auto">
+                <TextBox.Text>
+                    <Binding Path="NewRecept.Calories" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validators:NecessarilyValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <CheckBox IsChecked="{Binding NewRecept.IsVegetarian}" Content="Вегетарианское" Margin="4,10" Foreground="{DynamicResource Twotext}"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Content="Добавить" Click="Add_Click" Style="{DynamicResource StandardButton}" Width="100" Margin="5"/>
+                <Button Content="Отмена" Click="Cancel_Click" Style="{DynamicResource DeleteButton}" Width="100" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

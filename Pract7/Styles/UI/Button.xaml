@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="StandardButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Foreground" Value="{DynamicResource Zagolovki}"/>
+        <Setter Property="Background" Value="{DynamicResource Actions}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Videlenie}"/>
+    </Style>
+
+    <Style x:Key="DeleteButton" TargetType="Button" BasedOn="{StaticResource StandardButton}">
+        <Setter Property="Background" Value="{StaticResource Danger}"/>
+    </Style>
+
+    <Style x:Key="TextBlockWithMargin" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Foreground" Value="{DynamicResource Twotext}"/>
+    </Style>
+
+    <Style x:Key="TextBoxWithMargin" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBox}">
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        <Setter Property="Background" Value="{DynamicResource Vvod}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Videlenie}"/>
+        <Setter Property="AutomationProperties.Name" Value=""/>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="Background" Value="{DynamicResource Fonmistake}" />
+                <Setter Property="Foreground" Value="{DynamicResource Bordermistake}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="DatePickerWithMargin" TargetType="DatePicker" BasedOn="{StaticResource MaterialDesignDatePicker}">
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="AutomationProperties.Name" Value=""/>
+        <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+        <Setter Property="Background" Value="{DynamicResource Vvod}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Videlenie}"/>
+    </Style>
+
+    <Style x:Key="BorderWithMargin" TargetType="Border" BasedOn="{StaticResource MaterialDesignToolBarMainPanelBorderStyle}">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Separators}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style x:Key="LabelWithMargin" TargetType="Label" BasedOn="{StaticResource MaterialDesignLabel}">
+        <Setter Property="Margin" Value="0.6"/>
+        <Setter Property="Foreground" Value="{DynamicResource Twotext}"/>
+    </Style>
+
+    <Style x:Key="ListViewBackground" TargetType="ListView" BasedOn="{StaticResource MaterialDesignListView}">
+        <Setter Property="Background" Value="{DynamicResource Panel}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Videlenie}"/>
+    </Style>
+
+    <Style x:Key="MenuItemForeground" TargetType="MenuItem" BasedOn="{StaticResource MaterialDesignMenuItem}">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style x:Key="ItemControlText" TargetType="ItemsControl">
+        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+    
+    <Style x:Key="StackPanelBackground" TargetType="StackPanel">
+        <Setter Property="Background" Value="{DynamicResource Panel}"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    
+    <Style x:Key="StackPanelOrientation" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Vertical"/>
+    </Style>
+
+    <Style x:Key="StackPanelOrientationH" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+</ResourceDictionary>
